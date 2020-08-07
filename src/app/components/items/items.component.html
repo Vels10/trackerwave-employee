@@ -1,6 +1,44 @@
 <div *ngIf = "items?.length > 0; else noItems">
   <ul *ngFor = "let item of items" class = "collection">
-    <li class = "collection-item">Database Unique ID : {{item.id}} || Employee Id : {{item.Employee_Id}}||Name : {{item.Name}} || Designation : {{item.Designation}} || Joining Date : {{item.Joining_date * 1000 | date }} || Address : {{item.Address}} || DOB : {{item.DOB*1000 | date }}</li>
+    <li (dblclick) = "deleteItem($event, item)" class = "collection-item">Database Unique ID : {{item.id}} || Employee Id : {{item.Employee_Id}}||Name : {{item.Name}} || Designation : {{item.Designation}} || Joining Date : {{item.Joining_date * 1000 | date }} || Address : {{item.Address}} || DOB : {{item.DOB*1000 | date }}
+    <a href="#" class="secondary-content">
+      <i (click)="editItem($event, item)" class="fa fa-pencil"></i>
+      <i *ngIf = "editState && itemToEdit.id == item.id" (click)="clearItem()" class="fa fa-compress"></i>
+    </a>
+    <div *ngIf = "editState && itemToEdit.id == item.id">
+      <form (ngSubmit) = "updateItem(item)">
+        <div class = "row">
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.Name" name = "title">
+          <label> Name </label>
+        </div>
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.Designation" name = "Designation">
+          <label> Designation </label>
+        </div>
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.DOB" name = "DOB">
+          <label> DOB </label>
+        </div>
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
+          <label> Joining Date </label>
+        </div>
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.Address" name = "Address">
+          <label> Address </label>
+        </div>
+        <div class = "input-field.col.s6">
+          <input type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
+          <label> Employee Id </label>
+        </div>
+        <input type = "submit" value = "Update Item" class = "btn orange">
+        <button (click) = "deleteItem($event, item)" class = "btn red">Delete Item</button>
+      </div>
+      </form>
+    </div>
+    </li>
+
   </ul>
 </div>
 

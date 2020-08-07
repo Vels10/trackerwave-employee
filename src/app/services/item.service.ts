@@ -7,13 +7,14 @@ import { Item } from '../models/Item';
 @Injectable()
 
 export class ItemService {
-  itemsCollection: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>;
+  itemsCollection : AngularFirestoreCollection<Item>;
+  items : Observable<Item[]>;
+  itemDoc : AngularFirestoreDocument<Item>;
 
   constructor(public afs: AngularFirestore) {
     //this.items = this.afs.collection('items').valueChanges();
 
-    this.itemsCollection = this.afs.collection('items');
+    this.itemsCollection = this.afs.collection('items', ref => ref.orderBy('Employee_Id', 'asc'));
 
     this.items = this.itemsCollection.snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -30,6 +31,16 @@ export class ItemService {
 
   addItem(item : Item){
     this.itemsCollection.add(item);
+  }
+
+  updateItem(item : Item){
+    this.itemDoc = this.afs.doc(`items/${item.id}`);
+    this.itemDoc.update(item);
+  }
+
+  deleteItem(item : Item){
+    this.itemDoc = this.afs.doc(`items/${item.id}`);
+    this.itemDoc.delete();
   }
 }
 
