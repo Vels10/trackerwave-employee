@@ -6,6 +6,7 @@ import { Item } from '../../models/Item';
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.css']
+
 })
 export class AddItemComponent implements OnInit {
 
@@ -33,5 +34,7 @@ export class AddItemComponent implements OnInit {
       this.item.DOB = new Date(0);
     }
   }
+
+
 
 }

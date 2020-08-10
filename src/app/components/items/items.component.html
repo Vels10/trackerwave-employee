@@ -17,12 +17,16 @@
           <label> Designation </label>
         </div>
         <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.DOB" name = "DOB">
-          <label> DOB </label>
+          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.DOB" name = "DOB">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>DOB</mat-label>
         </div>
         <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
-          <label> Joining Date </label>
+          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" 0type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-label> Joining Date </mat-label>
         </div>
         <div class = "input-field.col.s6">
           <input type = "text" [(ngModel)] = "item.Address" name = "Address">
