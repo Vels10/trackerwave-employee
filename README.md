@@ -1,6 +1,8 @@
-# TrackerwaveEmployee
+# TrackerwaveEmployee 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+
+It was Hosted on Firebase `https://trackerwave-aff69.web.app/`
 
 ## Development server
 
