@@ -19,30 +19,30 @@
 
 
 
-        <div class = "input-field.col.s6">
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="Name"  type = "text" [(ngModel)] = "item.Name" name = "title">
           <mat-label>Name</mat-label>
           </mat-form-field>
-        </div>
 
-        <div class = "input-field.col.s6">
+
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="Designation" type = "text" [(ngModel)] = "item.Designation" name = "Designation">
           <mat-label>Designation </mat-label>
           </mat-form-field>
-        </div>
 
-        <div class = "input-field.col.s6">
+
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.DOB" name = "DOB">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-label>DOB</mat-label>
           </mat-form-field>
-        </div>
 
-        <div class = "input-field.col.s6">
+
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker2" type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
           <mat-datepicker-toggle matSuffix [for]="picker2">
@@ -50,21 +50,22 @@
           <mat-datepicker #picker2></mat-datepicker>
           <mat-label> Joining Date </mat-label>
           </mat-form-field>
-        </div>
 
-        <div class = "input-field.col.s6">
+
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="Address" type = "text" [(ngModel)] = "item.Address" name = "Address">
           <mat-label> Address </mat-label>
           </mat-form-field>
-        </div>
 
-        <div class = "input-field.col.s6">
+
+
           <mat-form-field appearance="fill">
           <input matInput placeholder ="Employee Id" type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
           <mat-label> Employee Id </mat-label>
           </mat-form-field>
-        </div>
+
+          <br/>
 
         <input type="submit" value="Update Item" class="btn orange">
         <button (click)="deleteItem($event, item)" class="btn red">Delete Item</button>
