@@ -1,38 +1,60 @@
-<div class = "card">
-  <div class = "card-content">
-    <span class = "card-title">Add Item</span>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add Employee Details</mat-card-title>
+  </mat-card-header>
     <form (ngSubmit) = "onSubmit()" class = "col-s6">
-      <div class = "row">
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="Name"  type = "text" [(ngModel)] = "item.Name" name = "title">
-          <mat-label>Name</mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="Designation" type = "text" [(ngModel)] = "item.Designation" name = "Designation">
-          <mat-label>Designation </mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.DOB" name = "DOB">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-label>DOB</mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-label> Joining Date </mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="Address" type = "text" [(ngModel)] = "item.Address" name = "Address">
-          <mat-label> Address </mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="Employee Id" type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
-          <mat-label> Employee Id </mat-label>
-        </div>
+      <mat-card-content>
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="Name"  type = "text" [(ngModel)] = "item.Name" name = "title">
+            <mat-label>Name</mat-label>
+          </mat-form-field>
+
+          <br/>
+
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="Designation" type = "text" [(ngModel)] = "item.Designation" name = "Designation">
+            <mat-label>Designation </mat-label>
+          </mat-form-field>
+
+          <br/>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.DOB" name = "DOB">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-label>DOB</mat-label>
+          </mat-form-field>
+
+          <br/>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker2" type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
+            <mat-datepicker-toggle matSuffix [for]="picker2">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-label> Joining Date </mat-label>
+          </mat-form-field>
+
+          <br/>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="Address" type = "text" [(ngModel)] = "item.Address" name = "Address">
+            <mat-label> Address </mat-label>
+          </mat-form-field>
+
+          <br/>
+
+          <mat-form-field appearance="fill">
+            <input matInput placeholder ="Employee Id" type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
+            <mat-label> Employee Id </mat-label>
+          </mat-form-field>
+
+          <br/>
+
           <button mat-flat-button color="primary">Submit</button>
-      </div>
+
+      </mat-card-content>
     </form>
-  </div>
-</div>
+
+</mat-card>

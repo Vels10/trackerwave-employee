@@ -1,48 +1,79 @@
 <div *ngIf = "items?.length > 0; else noItems">
   <ul *ngFor = "let item of items" class = "collection">
-    <li (dblclick) = "deleteItem($event, item)" class = "collection-item">Database Unique ID : {{item.id}} || Employee Id : {{item.Employee_Id}}||Name : {{item.Name}} || Designation : {{item.Designation}} || Joining Date : {{item.Joining_date * 1000 | date }} || Address : {{item.Address}} || DOB : {{item.DOB*1000 | date }}
-    <a href="#" class="secondary-content">
-      <i (click)="editItem($event, item)" class="fa fa-pencil"></i>
-      <i *ngIf = "editState && itemToEdit.id == item.id" (click)="clearItem()" class="fa fa-compress"></i>
-    </a>
-    <div *ngIf = "editState && itemToEdit.id == item.id">
-      <form (ngSubmit) = "updateItem(item)">
-        <div class = "row">
+    <li (dblclick) = "deleteItem($event, item)" class = "collection-item">
+    <b>Database Unique ID</b> : {{item.id}} <br/>
+    <b>Employee Id</b> : {{item.Employee_Id}} <br/>
+    <b>Name</b> : {{item.Name}} <br/>
+    <b>Designation</b> : {{item.Designation}} <br/>
+    <b>Joining Date</b> : {{item.Joining_date.seconds*1000 | date:'medium' }} <br/>
+    <b>Address</b> : {{item.Address}} <br/>
+    <b>DOB</b> : {{item.DOB.seconds*1000 | date:'medium' }}
+
+      <a href="#" class="secondary-content">
+        <i (click)="editItem($event, item)" class="fa fa-pencil"></i>
+        <i *ngIf = "editState && itemToEdit.id == item.id" (click)="clearItem()" class="fa fa-compress"></i>
+      </a>
+
+      <div *ngIf = "editState && itemToEdit.id == item.id">
+          <form (ngSubmit) = "updateItem(item)" class = "col-s6">
+
+
+
         <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.Name" name = "title">
-          <label> Name </label>
+          <mat-form-field appearance="fill">
+          <input matInput placeholder ="Name"  type = "text" [(ngModel)] = "item.Name" name = "title">
+          <mat-label>Name</mat-label>
+          </mat-form-field>
         </div>
+
         <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.Designation" name = "Designation">
-          <label> Designation </label>
+          <mat-form-field appearance="fill">
+          <input matInput placeholder ="Designation" type = "text" [(ngModel)] = "item.Designation" name = "Designation">
+          <mat-label>Designation </mat-label>
+          </mat-form-field>
         </div>
+
         <div class = "input-field.col.s6">
+          <mat-form-field appearance="fill">
           <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" type = "text" [(ngModel)] = "item.DOB" name = "DOB">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-label>DOB</mat-label>
+          </mat-form-field>
         </div>
-        <div class = "input-field.col.s6">
-          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker" 0type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-label> Joining Date </mat-label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.Address" name = "Address">
-          <label> Address </label>
-        </div>
-        <div class = "input-field.col.s6">
-          <input type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
-          <label> Employee Id </label>
-        </div>
-        <input type = "submit" value = "Update Item" class = "btn orange">
-        <button (click) = "deleteItem($event, item)" class = "btn red">Delete Item</button>
-      </div>
-      </form>
-    </div>
-    </li>
 
+        <div class = "input-field.col.s6">
+          <mat-form-field appearance="fill">
+          <input matInput placeholder ="MM/dd/YYYY" [matDatepicker]="picker2" type = "text" [(ngModel)] = "item.Joining_date" name = "Joining_date">
+          <mat-datepicker-toggle matSuffix [for]="picker2">
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-label> Joining Date </mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class = "input-field.col.s6">
+          <mat-form-field appearance="fill">
+          <input matInput placeholder ="Address" type = "text" [(ngModel)] = "item.Address" name = "Address">
+          <mat-label> Address </mat-label>
+          </mat-form-field>
+        </div>
+
+        <div class = "input-field.col.s6">
+          <mat-form-field appearance="fill">
+          <input matInput placeholder ="Employee Id" type = "text" [(ngModel)] = "item.Employee_Id" name = "Employee_Id">
+          <mat-label> Employee Id </mat-label>
+          </mat-form-field>
+        </div>
+
+        <input type="submit" value="Update Item" class="btn orange">
+        <button (click)="deleteItem($event, item)" class="btn red">Delete Item</button>
+
+
+
+          </form>
+      </div>
+    </li>
   </ul>
 </div>
 
